@@ -2,11 +2,12 @@ var express=require('express');
 var fs=require('fs');
 var path=require('path');
 var app=express();
-
+var colors = require('colors');
 app.use(express.static(path.join(__dirname+'/public')));
 
 app.listen(3000,function(){
-	console.log('서버 시작됨 3000 포트');
+	console.log('서버 시작됨 3000 포트' .red);
+	
 });
 
 /*
