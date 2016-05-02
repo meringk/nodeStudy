@@ -1,0 +1,11 @@
+{
+  "name": "mdul",
+  "version": "1.0.0",
+  "description": "mdulTestGOGO",
+  "main": "mdul.js",
+  "scripts": {
+    "test": "testCommand"
+  },
+  "author": "khr",
+  "license": "ISC"
+}
