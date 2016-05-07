@@ -1,14 +1,31 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var mongoose = require('mongoose');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
+//var routes = require('./routes/index');
+//var users = require('./routes/users');
+var employees = require('./routes/employees')
 var app = express();
+
+var db = mongoose.connection;
+var dbUrl='mongodb://test:mering@ds013162.mlab.com:13162/meringk'
+db.on('error', function(){
+  console.log('there was an error');
+});
+
+console.log("연결해보기");
+
+//var Team = mongoose.model('Team');
+console.log("연결해보기2");
+
+mongoose.connect(dbUrl);
+console.log("연결");
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +39,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+//app.use('/', routes);
+//app.use('/users', users);
+app.use(employees);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
