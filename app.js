@@ -14,7 +14,15 @@ var app = express();
 
 var db = mongoose.connection;
 var dbUrl='mongodb://test:mering@ds013162.mlab.com:13162/meringk'
+
+
+app.listen(3000, function(){
+	console.log('서버시작');
+});
+
+
 db.on('error', function(){
+
   console.log('there was an error');
 });
 
